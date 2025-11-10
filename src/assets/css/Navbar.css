@@ -1,0 +1,8 @@
+/* src/components/commons/Navbar.css */
+
+.profile-box-motif {
+  background-image: url("../img/shape_71.png"); 
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain; /* atau 'cover' */
+}
