@@ -3,8 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import '../assets/css/TalentPage.css';
 import Pagination from '../components/common/Pagination';
+import { useTalents } from '../hooks/useTalents';
 
 function TalentPage() {
+    const { 
+        paginatedTalents, 
+        currentPage, 
+        totalPages, 
+        goToPage,
+        totalTalents,
+        itemsPerPage
+    } = useTalents();
+
     return (
         <div className="row py-4 px-5 align-items-center">
 
@@ -34,11 +44,11 @@ function TalentPage() {
             </div>
 
             <div className='col-12 mt-4'>
-                <div className="card" style={{ border: "none" }}>
+                <div className="card bg-light border-0 rounded-4">
                     <div className="card-body">
                         <div className="table-responsive">
                             <table className="table align-middle mb-0 text-primary">
-                                <thead className="table-primary">
+                                <thead className="table-primary text-primary">
                                     <tr>
                                         <th scope="col">Talent Name</th>
                                         <th scope="col">Skills</th>
@@ -47,35 +57,31 @@ function TalentPage() {
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-                                    <tr>
-                                        <td>Andi Wijaya</td>
-                                        <td>Senior Frontend Developer</td>
-                                        <td>andi.wijaya@example.com</td>
-                                        <td><span className="badge bg-success">Aktif</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Budi Santoso</td>
-                                        <td>Backend Developer</td>
-                                        <td>budi.santoso@example.com</td>
-                                        <td><span className="badge bg-success">Aktif</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Citra Lestari</td>
-                                        <td>UI/UX Designer</td>
-                                        <td>citra.lestari@example.com</td>
-                                        <td><span className="badge bg-warning text-dark">Cuti</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Doni Firmansyah</td>
-                                        <td>Project Manager</td>
-                                        <td>doni.firmansyah@example.com</td>
-                                        <td><span className="badge bg-danger">Non-Aktif</span></td>
-                                    </tr>
+                                    {paginatedTalents.map((talent) => (
+                                        <tr key={talent.id}>
+                                            <td>{talent.name}</td>
+                                            <td>{talent.skills}</td>
+                                            <td>{talent.position}</td>
+                                            <td>{talent.uploadedAt}</td>
+                                            <td>
+                                                <a className="primary text-decoration-none">View Detail
+                                                    <svg className="ms-2 mb-1" width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4.66669 4.66667H11.3334M11.3334 4.66667V11.3333M11.3334 4.66667L4.66669 11.3333" stroke="#0043CE" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
-                            <Pagination />
+                            <Pagination 
+                                currentPage={currentPage}
+                                totalPages={totalPages}
+                                onPageChange={goToPage}
+                                totalTalents={totalTalents}
+                                itemsPerPage={itemsPerPage}
+                            />
                         </div>
                     </div>
                 </div>

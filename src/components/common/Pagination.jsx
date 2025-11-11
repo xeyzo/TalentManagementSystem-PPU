@@ -2,37 +2,39 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import '../../assets/css/Pagination.css';
 
-function Pagination() {
+function Pagination({ currentPage, totalPages, onPageChange, totalTalents, itemsPerPage }) {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+    }
+
+    const startRecord = (currentPage - 1) * itemsPerPage + 1;
+    const endRecord = Math.min(currentPage * itemsPerPage, totalTalents);
+
     return (
         <div className="d-flex justify-content-between align-items-center mt-3">
 
-            <span className="text-muted">1 - 10 / 15 records</span>
+            <span className="text-muted">{startRecord} - {endRecord} / {totalTalents} records</span>
 
             <nav aria-label="Page navigation">
                 <ul className="pagination mb-0">
                     
-                    {/* PERBAIKAN: Tambah 'disabled' dan ganti 'aria-label' */}
-                    <li className="page-item disabled">
-                        <a className="page-link" href="#" aria-label="Previous">
+                    <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                        <a className="page-link" href="#" aria-label="Previous" onClick={() => onPageChange(currentPage - 1)}>
                             <FontAwesomeIcon icon={faArrowLeft} />
                         </a>
                     </li>
 
-                    {/* PERBAIKAN: Tambah 'active' di halaman 1 */}
-                    <li className="page-item active">
-                        <a className="page-link" href="#">1</a>
-                    </li>
+                    {pageNumbers.map(number => (
+                        <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
+                            <a className="page-link" href="#" onClick={() => onPageChange(number)}>
+                                {number}
+                            </a>
+                        </li>
+                    ))}
 
-                    <li className="page-item">
-                        <a className="page-link" href="#">2</a>
-                    </li>
-
-                    <li className="page-item">
-                        <a className="page-link" href="#">3</a>
-                    </li>
-
-                    <li className="page-item">
-                        <a className="page-link" href="#" aria-label="Next">
+                    <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+                        <a className="page-link" href="#" aria-label="Next" onClick={() => onPageChange(currentPage + 1)}>
                             <FontAwesomeIcon icon={faArrowRight}/>
                         </a>
                     </li>

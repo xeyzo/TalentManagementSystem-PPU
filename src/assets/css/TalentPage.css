@@ -13,7 +13,8 @@
  
 .card-body {
   background-color: white;
-  border: none; 
+  border: none;
+  border-radius: 10px; 
 }
 
 .card-body .table {

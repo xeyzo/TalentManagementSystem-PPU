@@ -1,0 +1,22 @@
+[
+  { "id": 1, "name": "Andi Wijaya", "skills": "React, Node.js, TypeScript", "position": "Senior Frontend Developer", "uploadedAt": "2024-07-21" },
+  { "id": 2, "name": "Budi Santoso", "skills": "Go, Python, Docker", "position": "Backend Developer", "uploadedAt": "2024-07-20" },
+  { "id": 3, "name": "Citra Lestari", "skills": "Figma, Sketch, Adobe XD", "position": "UI/UX Designer", "uploadedAt": "2024-07-19" },
+  { "id": 4, "name": "Doni Firmansyah", "skills": "Jira, Scrum, Agile", "position": "Project Manager", "uploadedAt": "2024-07-18" },
+  { "id": 5, "name": "Eka Putri", "skills": "Java, Spring Boot, Kubernetes", "position": "DevOps Engineer", "uploadedAt": "2024-07-17" },
+  { "id": 6, "name": "Fajar Nugroho", "skills": "Vue.js, Nuxt.js, TailwindCSS", "position": "Frontend Developer", "uploadedAt": "2024-07-16" },
+  { "id": 7, "name": "Gita Permata", "skills": "PHP, Laravel, MySQL", "position": "Backend Developer", "uploadedAt": "2024-07-15" },
+  { "id": 8, "name": "Hadi Kurniawan", "skills": "Angular, RxJS, Ngrx", "position": "Senior Frontend Developer", "uploadedAt": "2024-07-14" },
+  { "id": 9, "name": "Indah Sari", "skills": "Swift, UIKit, CoreData", "position": "iOS Developer", "uploadedAt": "2024-07-13" },
+  { "id": 10, "name": "Joko Susilo", "skills": "Kotlin, Jetpack Compose, Coroutines", "position": "Android Developer", "uploadedAt": "2024-07-12" },
+  { "id": 11, "name": "Kartika Dewi", "skills": "Ruby on Rails, PostgreSQL", "position": "Backend Developer", "uploadedAt": "2024-07-11" },
+  { "id": 12, "name": "Lutfi Hakim", "skills": "C#, .NET, Azure", "position": "Fullstack Developer", "uploadedAt": "2024-07-10" },
+  { "id": 13, "name": "Maya Indriani", "skills": "Flutter, Dart, Firebase", "position": "Mobile Developer", "uploadedAt": "2024-07-09" },
+  { "id": 14, "name": "Nanda Pratama", "skills": "React Native, Redux, GraphQL", "position": "Mobile Developer", "uploadedAt": "2024-07-08" },
+  { "id": 15, "name": "Olivia Gunawan", "skills": "Selenium, Cypress, Jest", "position": "QA Engineer", "uploadedAt": "2024-07-07" },
+  { "id": 16, "name": "Putra Wijaya", "skills": "TensorFlow, PyTorch, Scikit-learn", "position": "Machine Learning Engineer", "uploadedAt": "2024-07-06" },
+  { "id": 17, "name": "Rina Marlina", "skills": "AWS, GCP, Terraform", "position": "Cloud Engineer", "uploadedAt": "2024-07-05" },
+  { "id": 18, "name": "Sari Hartati", "skills": "Power BI, Tableau, SQL", "position": "Data Analyst", "uploadedAt": "2024-07-04" },
+  { "id": 19, "name": "Teguh Prasetyo", "skills": "Django, Flask, FastAPI", "position": "Python Developer", "uploadedAt": "2024-07-03" },
+  { "id": 20, "name": "Utami Lestari", "skills": "HTML, CSS, JavaScript", "position": "Web Developer", "uploadedAt": "2024-07-02" }
+]
