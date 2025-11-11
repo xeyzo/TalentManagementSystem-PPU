@@ -1,0 +1,236 @@
+/* Modal.css
+  File ini akan mengatur tampilan ModalUploadCV Anda
+*/
+
+/* 1. BACKGROUND (OVERLAY) */
+.modal-overlay {
+  position: fixed; /* Tetap di layar */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Ini adalah background gelap transparan */
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Pastikan di atas konten lain */
+  padding: 20px;
+}
+
+/* 2. LEBAR MODAL (CONTENT) */
+.modal-content {
+  background-color: white !important;
+  border-radius: 16px !important;
+  
+  /* INI YANG ANDA MINTA: Mengatur lebar */
+  width: 100px; /* Atur lebar tetap */
+  max-width: 30%; /* Pastikan tidak lebih lebar dari 90% layar (untuk mobile) */
+
+  overflow: hidden; 
+}
+
+/* --- Styling Tambahan (dari screenshot) --- */
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 80px;
+  border-bottom: 1px solid #eee;
+  background-color: #c2e2fa;
+  border-top-left-radius: 16px !important;
+  border-top-right-radius: 16px !important;
+  padding: 10px !important;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #999;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 80px;
+  background-color: #ffffff;
+}
+
+.upload-area {
+  border: 2px dashed #a0a0a0;
+  border-radius: 8px;
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.upload-area.dragging {
+  border-color: #007bff;
+  background-color: #e6f7ff;
+}
+
+.upload-label {
+    display: block;
+    cursor: pointer;
+}
+
+.upload-icon {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.upload-text {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.upload-info {
+  font-size: 0.9em;
+  color: #777;
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+/* Uploaded Files List */
+.uploaded-files-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.uploaded-file-item {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+.uploaded-file-item:last-child {
+  margin-bottom: 0;
+}
+
+.file-icon {
+  color: #dc3545; /* Merah untuk PDF */
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.file-name {
+  flex-grow: 1;
+  font-size: 0.95em;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress-bar-container {
+  width: 150px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.close-progress-button {
+    color: #999;
+    margin-left: 5px;
+}
+
+.delete-button:hover {
+  color: #c82333;
+}
+
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 80px;
+  border-top: 1px solid #eee;
+  background-color: #ffffff;
+  padding: 10px !important; 
+}
+
+.modal-content .modal-footer {
+  background-color: #ffffff;
+}
+
+.cancel-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-right: 10px;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+}
+
+.submit-button {
+  background-color: #104D9C;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.submit-button:disabled {
+  background-color: #a0c2ed;
+  cursor: not-allowed;
+}
