@@ -1,38 +1,26 @@
-/* Modal.css
-  File ini akan mengatur tampilan ModalUploadCV Anda
-*/
 
-/* 1. BACKGROUND (OVERLAY) */
 .modal-overlay {
-  position: fixed; /* Tetap di layar */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  /* Ini adalah background gelap transparan */
   background-color: rgba(0, 0, 0, 0.5); 
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Pastikan di atas konten lain */
+  z-index: 1000;
   padding: 20px;
 }
 
-/* 2. LEBAR MODAL (CONTENT) */
 .modal-content {
   background-color: white !important;
   border-radius: 16px !important;
-  
-  /* INI YANG ANDA MINTA: Mengatur lebar */
-  width: 100px; /* Atur lebar tetap */
-  max-width: 30%; /* Pastikan tidak lebih lebar dari 90% layar (untuk mobile) */
-
+  width: 100px;
+  max-width: 30%;
   overflow: hidden; 
 }
 
-/* --- Styling Tambahan (dari screenshot) --- */
-
-/* Modal Header */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -64,7 +52,6 @@
   color: #333;
 }
 
-/* Modal Body */
 .modal-body {
   padding: 80px;
   background-color: #ffffff;
@@ -118,8 +105,6 @@
   cursor: pointer;
 }
 
-
-/* Uploaded Files List */
 .uploaded-files-list {
   max-height: 200px;
   overflow-y: auto;
@@ -140,7 +125,7 @@
 }
 
 .file-icon {
-  color: #dc3545; /* Merah untuk PDF */
+  color: #dc3545;
   margin-right: 10px;
   font-size: 1.2em;
 }
@@ -166,7 +151,7 @@
 
 .progress-bar {
   height: 100%;
-  background-color: #007bff;
+  background-color: #104D9C;
   border-radius: 5px;
   transition: width 0.3s ease;
 }
@@ -190,8 +175,6 @@
   color: #c82333;
 }
 
-
-/* Modal Footer */
 .modal-footer {
   display: flex;
   justify-content: flex-end;
@@ -203,6 +186,7 @@
 
 .modal-content .modal-footer {
   background-color: #ffffff;
+  gap: 3px;
 }
 
 .cancel-button {

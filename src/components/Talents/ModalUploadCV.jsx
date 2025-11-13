@@ -1,35 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudArrowUp, faFilePdf, faTimes, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-// Pastikan path ke CSS Anda benar
 import '../../assets/css/Modal.css'; 
 
-const ModalUploadCV = ({ onClose, isOpen }) => {
-  // ✅ HOOKS DI ATAS
-  // Semua hook (useState, useEffect) harus dipanggil di top-level
-  // sebelum 'return' kondisional.
+const ModalUploadCV = ({ onClose, isOpen, onUpload }) => {
   const [files, setFiles] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
+  const intervalRef = useRef({});
 
-  React.useEffect(() => {
-    const fileToUpload = files.find(f => !f.uploaded && f.progress < 100);
-    if (fileToUpload) {
-      const interval = setInterval(() => {
-        setFiles(prevFiles => prevFiles.map(f => {
-          if (f.name === fileToUpload.name) {
-            const newProgress = Math.min(f.progress + 10, 100);
-            return { ...f, progress: newProgress, uploaded: newProgress === 100 };
-          }
-          return f;
-        }));
-      }, 300); // Setiap 300ms, progress bertambah
+  useEffect(() => {
+    const filesToAnimate = files.filter(f => f.progress < 100 && !intervalRef.current[f.name]);
 
-      return () => clearInterval(interval);
-    }
+    filesToAnimate.forEach(fileToAnimate => {
+      intervalRef.current[fileToAnimate.name] = setInterval(() => {
+        setFiles(currentFiles =>
+          currentFiles.map(f => {
+            if (f.name === fileToAnimate.name && f.progress < 100) {
+              const newProgress = f.progress + 10;
+              if (newProgress >= 100) {
+                clearInterval(intervalRef.current[fileToAnimate.name]);
+                delete intervalRef.current[fileToAnimate.name];
+                return { ...f, progress: 100 };
+              }
+              return { ...f, progress: newProgress };
+            }
+            return f;
+          })
+        );
+      }, 100);
+    });
   }, [files]);
 
-  // --- Handlers ---
-  
+  useEffect(() => {
+    return () => {
+      Object.values(intervalRef.current).forEach(clearInterval);
+    };
+  }, []);
+
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.target.files);
     setFiles((prevFiles) => [
@@ -38,7 +45,7 @@ const ModalUploadCV = ({ onClose, isOpen }) => {
         file,
         name: file.name,
         size: file.size,
-        progress: 10, // Mulai dari 10% agar loading langsung terlihat
+        progress: 10,
         uploaded: false,
         error: null,
       }))
@@ -65,7 +72,7 @@ const ModalUploadCV = ({ onClose, isOpen }) => {
         file,
         name: file.name,
         size: file.size,
-        progress: 10, // Mulai dari 10% agar loading langsung terlihat
+        progress: 10,
         uploaded: false,
         error: null,
       }))
@@ -73,29 +80,25 @@ const ModalUploadCV = ({ onClose, isOpen }) => {
   };
 
   const handleDeleteFile = (fileName) => {
+    clearInterval(intervalRef.current[fileName]);
+    delete intervalRef.current[fileName];
     setFiles(files.filter(file => file.name !== fileName));
   };
 
   const handleSubmit = () => {
-    console.log("Submitting files:", files.map(f => f.name));
-    // Implementasi logika upload ke server di sini
-    onClose();
+    onUpload(files);
   };
 
-  // ✅ PERBAIKAN "RULES OF HOOKS"
-  // 'Return' kondisional dipindah ke sini (setelah semua hook dipanggil).
   if (!isOpen) {
     return null;
   }
-
-  // --- Render JSX ---
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
         
         <div className="modal-header">
-          <h2 className="primary">Upload CV Talent</h2>
+          <h2 style={{color:"#104D9C", fontWeight:"lighter"}}>Upload CV Talent</h2>
           <button className="close-button" onClick={onClose}>
             <FontAwesomeIcon icon={faTimes} />
           </button>
@@ -114,7 +117,7 @@ const ModalUploadCV = ({ onClose, isOpen }) => {
               onChange={handleFileChange}
               id="file-upload-input"
               className="file-input"
-              accept=".pdf" // Hanya terima PDF
+              accept=".pdf"
             />
             <label htmlFor="file-upload-input" className="upload-label">
               <FontAwesomeIcon icon={faCloudArrowUp} size="2x" className="upload-icon" />
@@ -132,16 +135,17 @@ const ModalUploadCV = ({ onClose, isOpen }) => {
                   <div className="progress-bar-container">
                     <div
                       className="progress-bar"
-                      style={{ width: `${fileData.progress}%` }}
+                      style={{ 
+                        width: `${fileData.progress}%`,
+                        backgroundColor: '#104D9C' 
+                      }}
                     ></div>
                   </div>
                 ) : (
-                  // Tombol hapus jika file sudah terupload
                   <button className="delete-button" onClick={() => handleDeleteFile(fileData.name)}>
                     <FontAwesomeIcon icon={faTrashAlt} />
                   </button>
                 )}
-                {/* Tombol "X" untuk file yang sedang diupload */}
                 {fileData.progress < 100 && (
                      <button className="delete-button close-progress-button" onClick={() => handleDeleteFile(fileData.name)}>
                         <FontAwesomeIcon icon={faTimes} />

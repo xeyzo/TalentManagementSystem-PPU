@@ -17,10 +17,18 @@ function TalentPage() {
         isModalOpen,
         handleCloseModal,
         handleOpenModal,
+        searchQuery,
+        handleSearch,
     } = useTalents();
 
+    const handleUploadCV = (files) => {
+        console.log('Files to upload:', files);
+        handleCloseModal();
+    };
+
     return (
-        <div className="row py-4 px-5 align-items-center">
+        <div className="container-fluid py-4 px-5">
+            <div className='row align-items-center'>
 
             <div className="col-8">
                 <h4 className="fw-bold">
@@ -35,6 +43,8 @@ function TalentPage() {
                         className="form-control talent-search-input"
                         placeholder="Search talent..."
                         aria-label="Search talent"
+                        value={searchQuery}
+                        onChange={handleSearch}
                     />
 
                     <button
@@ -52,7 +62,7 @@ function TalentPage() {
                 <div className="card bg-light border-0 rounded-4">
                     <div className="card-body">
                         <div className="table-responsive">
-                            <table className="table align-middle mb-0 text-primary">
+                            <table className="table align-middle mb-0 text-primary table-hover">
                                 <thead className="table-primary text-primary">
                                     <tr>
                                         <th scope="col">Talent Name</th>
@@ -94,7 +104,9 @@ function TalentPage() {
         <ModalUploadCV
             isOpen={isModalOpen}
             onClose={handleCloseModal}
+            onUpload={handleUploadCV}
         />
+        </div>
         </div>
 
     )
