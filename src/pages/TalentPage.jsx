@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import '../assets/css/TalentPage.css';
@@ -80,11 +81,11 @@ function TalentPage() {
                                             <td>{talent.position}</td>
                                             <td>{talent.uploadedAt}</td>
                                             <td>
-                                                <a className="primary text-decoration-none">View Detail
+                                                <Link to="/TalentDetail" className="primary text-decoration-none">View Detail
                                                     <svg className="ms-2 mb-1" width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M4.66669 4.66667H11.3334M11.3334 4.66667V11.3333M11.3334 4.66667L4.66669 11.3333" stroke="#0043CE" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
-                                                </a>
+                                                </Link>
                                             </td>
                                         </tr>
                                     ))}
