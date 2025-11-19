@@ -14,8 +14,10 @@ function TalentPageDetail() {
           <div className="card profile-header-card border-0 shadow-sm mb-4">
             <div className="profile-banner">
               <img src={backgroundDetail} alt="Banner" className="profile-banner-image" />
-              <button className="btn btn-sm edit-icon-absolute bg-translucent-white" type="button">
-                <FontAwesomeIcon icon={faPencil} style={{ color: "white" }} />
+              <button className="btn btn-sm edit-icon-absolute bg-translucent-white">
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.6083 3.02537L13.6417 6.0587M15.2902 4.39939C15.6912 3.99855 15.9165 3.45486 15.9165 2.88792C15.9166 2.32098 15.6915 1.77723 15.2906 1.37629C14.8898 0.975355 14.3461 0.750071 13.7791 0.75C13.2122 0.749929 12.6685 0.975077 12.2675 1.37591L2.1468 11.4989C1.97073 11.6745 1.84052 11.8906 1.76763 12.1283L0.765875 15.4286C0.746276 15.4942 0.744796 15.5638 0.761592 15.6302C0.778387 15.6965 0.812832 15.7571 0.861271 15.8055C0.90971 15.8538 0.970337 15.8882 1.03672 15.9049C1.1031 15.9216 1.17277 15.92 1.23832 15.9003L4.53934 14.8993C4.77683 14.827 4.99296 14.6976 5.16876 14.5224L15.2902 4.39939Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
               </button>
             </div>
             <div className="card-body p-4">
@@ -101,19 +103,21 @@ function TalentPageDetail() {
 
         <div className="col-md-8">
           <div className="d-flex justify-content-end align-items-center mb-2">
-            <button type="button" className="btn btn-outline-primary me-2">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="me-2">
-                <path d="M4.29167 8.08333L0.5 4.29167M0.5 4.29167L4.29167 0.5M0.5 4.29167H8.4625C9.01022 4.29167 9.55258 4.39955 10.0586 4.60915C10.5646 4.81876 11.0244 5.12598 11.4117 5.51328C11.799 5.90057 12.1062 6.36036 12.3158 6.86639C12.5255 7.37242 12.6333 7.91478 12.6333 8.4625C12.6333 9.01022 12.5255 9.55258 12.3158 10.0586C12.1062 10.5646 11.799 11.0244 11.4117 11.4117C11.0244 11.799 10.5646 12.1062 10.0586 12.3158C9.55258 12.5255 9.01022 12.6333 8.4625 12.6333H5.80833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Back
-            </button>
-            <button className="btn btn-danger me" type="button">
-              <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0.5 3.53333H14.15M12.6333 3.53333V14.15C12.6333 14.9083 11.875 15.6667 11.1167 15.6667H3.53333C2.775 15.6667 2.01667 14.9083 2.01667 14.15V3.53333M4.29167 3.53333V2.01667C4.29167 1.25833 5.05 0.5 5.80833 0.5H8.84167C9.6 0.5 10.3583 1.25833 10.3583 2.01667V3.53333M5.80833 7.325V11.875M8.84167 7.325V11.875" stroke="#DC3545" stroke-linecap="round" stroke-linejoin="round" />
+            <a href='/'>
+              <button type="button" className="btn btn-outline-primary me-2" to>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="me-2">
+                  <path d="M4.29167 8.08333L0.5 4.29167M0.5 4.29167L4.29167 0.5M0.5 4.29167H8.4625C9.01022 4.29167 9.55258 4.39955 10.0586 4.60915C10.5646 4.81876 11.0244 5.12598 11.4117 5.51328C11.799 5.90057 12.1062 6.36036 12.3158 6.86639C12.5255 7.37242 12.6333 7.91478 12.6333 8.4625C12.6333 9.01022 12.5255 9.55258 12.3158 10.0586C12.1062 10.5646 11.799 11.0244 11.4117 11.4117C11.0244 11.799 10.5646 12.1062 10.0586 12.3158C9.55258 12.5255 9.01022 12.6333 8.4625 12.6333H5.80833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Back
+              </button>
+            </a>
+            <button className="btn btn-outline-danger me-2" type="button">
+              <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="me-2">
+                <path d="M0.5 3.53333H14.15M12.6333 3.53333V14.15C12.6333 14.9083 11.875 15.6667 11.1167 15.6667H3.53333C2.775 15.6667 2.01667 14.9083 2.01667 14.15V3.53333M4.29167 3.53333V2.01667C4.29167 1.25833 5.05 0.5 5.80833 0.5H8.84167C9.6 0.5 10.3583 1.25833 10.3583 2.01667V3.53333M5.80833 7.325V11.875M8.84167 7.325V11.875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               Delete
             </button>
-            <button className="btn btn-primary" type="button">
+            <button className="btn btn-primary me-2" type="button" style={{ background: "#104D9C" }}>
               <FontAwesomeIcon icon={faDownload} className="me-1" />
               Download
             </button>
@@ -121,7 +125,12 @@ function TalentPageDetail() {
           <div className="styled-card-container">
             <div className="d-flex justify-content-between align-items-center styled-card-header">
               <h6 className="mb-0 text-primary">Skills</h6>
-              <button className="btn btn-light btn-sm" type="button"><FontAwesomeIcon icon={faPencil} className="text-primary" /></button>
+              <button className="btn btn-light btn-sm" type="button">
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.6083 3.02537L13.6417 6.0587M15.2902 4.39939C15.6912 3.99855 15.9165 3.45486 15.9165 2.88792C15.9166 2.32098 15.6915 1.77723 15.2906 1.37629C14.8898 0.975355 14.3461 0.750071 13.7791 0.75C13.2122 0.749929 12.6685 0.975077 12.2675 1.37591L2.1468 11.4989C1.97073 11.6745 1.84052 11.8906 1.76763 12.1283L0.765875 15.4286C0.746276 15.4942 0.744796 15.5638 0.761592 15.6302C0.778387 15.6965 0.812832 15.7571 0.861271 15.8055C0.90971 15.8538 0.970337 15.8882 1.03672 15.9049C1.1031 15.9216 1.17277 15.92 1.23832 15.9003L4.53934 14.8993C4.77683 14.827 4.99296 14.6976 5.16876 14.5224L15.2902 4.39939Z" stroke="#104D9C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+              </button>
             </div>
             <div className="card border-0 shadow-sm">
               <div className="card-body p-8">
@@ -178,7 +187,9 @@ function TalentPageDetail() {
             <div className="d-flex justify-content-between align-items-center styled-card-header">
               <h6 className="mb-0 text-primary">Education</h6>
               <button className="btn btn-light btn-sm" type="button">
-                <FontAwesomeIcon icon={faPencil} className="text-primary" />
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.6083 3.02537L13.6417 6.0587M15.2902 4.39939C15.6912 3.99855 15.9165 3.45486 15.9165 2.88792C15.9166 2.32098 15.6915 1.77723 15.2906 1.37629C14.8898 0.975355 14.3461 0.750071 13.7791 0.75C13.2122 0.749929 12.6685 0.975077 12.2675 1.37591L2.1468 11.4989C1.97073 11.6745 1.84052 11.8906 1.76763 12.1283L0.765875 15.4286C0.746276 15.4942 0.744796 15.5638 0.761592 15.6302C0.778387 15.6965 0.812832 15.7571 0.861271 15.8055C0.90971 15.8538 0.970337 15.8882 1.03672 15.9049C1.1031 15.9216 1.17277 15.92 1.23832 15.9003L4.53934 14.8993C4.77683 14.827 4.99296 14.6976 5.16876 14.5224L15.2902 4.39939Z" stroke="#104D9C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
               </button>
             </div>
             <div className="card border-0 shadow-sm">
@@ -214,7 +225,9 @@ function TalentPageDetail() {
             <div className="d-flex justify-content-between align-items-center styled-card-header">
               <h6 className="mb-0 text-primary">Experience</h6>
               <button className="btn btn-light btn-sm" type="button">
-                <FontAwesomeIcon icon={faPencil} className="text-primary" />
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.6083 3.02537L13.6417 6.0587M15.2902 4.39939C15.6912 3.99855 15.9165 3.45486 15.9165 2.88792C15.9166 2.32098 15.6915 1.77723 15.2906 1.37629C14.8898 0.975355 14.3461 0.750071 13.7791 0.75C13.2122 0.749929 12.6685 0.975077 12.2675 1.37591L2.1468 11.4989C1.97073 11.6745 1.84052 11.8906 1.76763 12.1283L0.765875 15.4286C0.746276 15.4942 0.744796 15.5638 0.761592 15.6302C0.778387 15.6965 0.812832 15.7571 0.861271 15.8055C0.90971 15.8538 0.970337 15.8882 1.03672 15.9049C1.1031 15.9216 1.17277 15.92 1.23832 15.9003L4.53934 14.8993C4.77683 14.827 4.99296 14.6976 5.16876 14.5224L15.2902 4.39939Z" stroke="#104D9C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
               </button>
             </div>
             <div className="card border-0 shadow-sm">

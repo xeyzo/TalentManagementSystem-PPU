@@ -141,8 +141,6 @@
   border: 1px solid #dee2e6;
 }
 
-.btn-kembali {
-  background-color: white;
-  border: 1px solid #104D9C;
-  color: #104D9C;
+.btn-outline-danger:hover{
+  color: white !important;
 }
