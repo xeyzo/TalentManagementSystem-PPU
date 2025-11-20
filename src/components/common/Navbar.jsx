@@ -9,7 +9,7 @@ function Navbar() {
       <div className="row g-0">
         
         <div className="col">
-          <a className="px-5 py-3 d-inline-block" href="#">
+          <a className="px-5 py-3 d-inline-block" href="/">
             <img 
               src={appIcon} 
               alt="Logo Perusahaan" 
