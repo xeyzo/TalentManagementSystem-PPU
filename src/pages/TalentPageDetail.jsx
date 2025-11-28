@@ -117,9 +117,9 @@ function TalentPageDetail() {
               </svg>
               Delete
             </button>
-            <button className="btn btn-primary me-2" type="button" style={{ background: "#104D9C" }}>
-              <FontAwesomeIcon icon={faDownload} className="me-1" />
-              Download
+            <button className="btn btn-primary" type="button" style={{ background: "#104D9C" }}>
+              Download CV
+              <FontAwesomeIcon icon={faDownload} className="ms-2" />
             </button>
           </div>
           <div className="styled-card-container">
